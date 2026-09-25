@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Manthan Bazaar 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=DM+Serif+Display:wght@400&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ======================================
+       PAGE 1: HOME / START PAGE
+  ======================================= -->
+
+  <section id="homePage" class="page active home-page">
+
+  <div class="home-logo-section">
+    <img
+      src="logo.png"
+      alt="Vidhya Sagar Women's College Logo"
+      class="home-logo"
+    />
+  </div>
+
+
+    <div class="home-content">
+      <p class="event-label"></p>
+
+      <h1 class="event-title">
+        <span>MANTHAN</span>
+        Bazaar
+      </h1>
+
+      <p class="event-description">
+        Explore exciting stalls, enjoy delicious food, discover creative
+        products, and share your valuable experience.
+      </p>
+
+      <button
+        class="blue-button home-button"
+        onclick="startNewMember()"
+      >
+        Register and Explore
+      </button>
+    </div>
+  </section>
+
+  <!-- ======================================
+       PAGE 2: SELECT USER TYPE
+  ======================================= -->
+
+  <section id="rolePage" class="page blur-page">
+    <header class="navbar">
+      <div class="brand">VIDHYA SAGAR WOMEN'S COLLEGE</div>
+
+      <button class="nav-button" onclick="goHome()">
+        ← Home
+      </button>
+    </header>
+
+    <div class="page-heading">
+      <p class="heading-label">WELCOME TO MANTHAN BAZAAR</p>
+
+      <h1>Choose Your Category</h1>
+
+      <p>Choose your role to register and explore the stalls.</p>
+    </div>
+
+    <div class="role-grid">
+      <button class="role-card" onclick="chooseRole('Student')">
+        <span class="role-icon">🎓</span>
+        <h2>Student</h2>
+        <p>Register using course, year, and department details.</p>
+      </button>
+
+      <button class="role-card" onclick="chooseRole('Staff')">
+        <span class="role-icon">👩‍🏫</span>
+        <h2>Staff</h2>
+        <p>Register using teacher name and department details.</p>
+      </button>
+
+      <button class="role-card" onclick="chooseRole('Admin')">
+        <span class="role-icon">🛡️</span>
+        <h2>Admin</h2>
+        <p>Admin name and password are required.</p>
+      </button>
+    </div>
+  </section>
+
+  <!-- ======================================
+       PAGE 3: MEMBER / ADMIN LOGIN
+  ======================================= -->
+
+  <section id="registrationPage" class="page blur-page">
+    <header class="navbar">
+      <div class="brand">VIDHYA SAGAR WOMEN'S COLLEGE</div>
+
+      <button class="nav-button" onclick="showPage('rolePage')">
+        ← Change Category
+      </button>
+    </header>
+
+    <div class="page-heading">
+      <p class="heading-label">VISITOR REGISTRATION</p>
+
+      <h1 id="formHeading">Registration Details</h1>
+
+      <p id="formDescription">
+        Enter your details to continue to the stall categories.
+      </p>
+    </div>
+
+    <!-- Student / Staff Login Form -->
+    <form class="registration-form" id="visitorForm">
+
+      <label for="visitorName">Your Name</label>
+
+      <input
+        type="text"
+        id="visitorName"
+        placeholder="Enter your full name"
+      />
+
+      <!-- Student only -->
+      <div id="studentFields">
+        <label for="course">Course / Degree</label>
+
+        <select id="course">
+          <option value="">Select your course</option>
+          <option value="BCA">BCA</option>
+          <option value="B.Sc">B.Sc</option>
+          <option value="B.Sc CS with DS">B.Sc CS with DS</option>
+          <option value="B.Sc CS with AI">B.Sc CS with AI</option>
+          <option value="B.Com CA">B.Com CA</option>
+          <option value="B.A English">B.A English</option>
+          <option value="B.COM General">B.COM General</option>
+          <option value="B.COM Accounting & Finance">B.COM Accounting & Finance</option>
+          <option value="B.COM Bank Management">B.COM Bank Management</option>
+          <option value="B.COM Computer Application">B.COM Computer Application</option>
+          <option value="BBA">BBA</option>
+          <option value="BBM">BBM</option>
+          <option value="B.Sc Chemistry">B.Sc Chemistry</option>
+          <option value="B.Sc Mathematics">B.Sc Mathematics</option>
+          <option value="M.COM">M.COM</option>
+          <option value="M.SC Computer Science">M.SC Computer Science</option>
+          <option value="Other">Others / Unknown</option>
+        </select>
+
+        <div id="otherCourseArea" class="hidden">
+          <label for="otherCourse">Enter Your Course</label>
+
+          <input
+            type="text"
+            id="otherCourse"
+            placeholder="Type your course name"
+          />
+        </div>
+
+        <label for="studyYear">Year of Study</label>
+
+        <select id="studyYear">
+          <option value="">Select your year</option>
+          <option value="1st Year">1st Year</option>
+          <option value="2nd Year">2nd Year</option>
+          <option value="3rd Year">3rd Year</option>
+          <option value="Alumni">Alumni</option>
+        </select>
+      </div>
+
+      <!-- Visible for Student and Staff -->
+      <div id="departmentSection">
+        <label for="department">Department</label>
+
+        <select id="department">
+          <option value="">Select department</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Commerce">Commerce</option>
+          <option value="Business Administration">Business Administration</option>
+          <option value="English">English</option>
+          <option value="Tamil">Tamil</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Mathematics">Mathematics</option>
+          <option value="Hindi">Hindi</option>
+          <option value="Library">Library</option>
+          <option value="Other">Others / Unknown</option>
+        </select>
+
+        <div id="otherDepartmentArea" class="hidden">
+          <label for="otherDepartment">Enter Department</label>
+
+          <input
+            type="text"
+            id="otherDepartment"
+            placeholder="Type your department"
+          />
+        </div>
+      </div>
+
+      <button type="submit" class="blue-button form-button">
+        Continue to Stall Categories
+      </button>
+    </form>
+
+    <!-- Admin Login: ONLY Admin Name + Password -->
+    <form class="registration-form hidden" id="adminForm">
+
+      <label for="adminName">Admin Name</label>
+
+      <input
+        type="text"
+        id="adminName"
+        placeholder="Enter admin name"
+      />
+
+      <label for="adminPassword">Admin Password</label>
+
+      <input
+        type="password"
+        id="adminPassword"
+        placeholder="Enter admin password"
+      />
+
+      <button type="submit" class="blue-button form-button">
+        Login to Admin Dashboard
+      </button>
+    </form>
+  </section>
+
+  <!-- ======================================
+       PAGE 4: CATEGORY STALLS (6 MAIN CATEGORIES)
+  ======================================= -->
+
+  <section id="stallsPage" class="page blur-page">
+    <header class="navbar">
+      <div class="brand">MANTHAN BAZAAR</div>
+
+      <button class="nav-button" onclick="goHome()">
+        Home
+      </button>
+    </header>
+
+    <div class="welcome-strip" id="welcomeMessage"></div>
+
+    <div class="page-heading">
+      <p class="heading-label">STALL DIRECTORY</p>
+
+      <h1>Stall Categories</h1>
+
+      <p>
+        Explore 6 exciting categories with a total of 49 unique stalls.
+      </p>
+    </div>
+
+    <div class="stall-grid" id="stallGrid"></div>
+  </section>
+
+  <!-- ======================================
+       PAGE 5: INSIDE A CATEGORY (LIST OF STALLS)
+  ======================================= -->
+
+  <section id="categoryStallsPage" class="page blur-page">
+    <header class="navbar">
+      <div class="brand">MANTHAN BAZAAR</div>
+
+      <button class="nav-button" onclick="showPage('stallsPage')">
+        ← Stall Categories
+      </button>
+    </header>
+
+    <div class="category-page-box">
+      <div class="category-heading-box">
+        <p class="heading-label">CATEGORY</p>
+        <h1 id="categoryPageTitle">Category Name</h1>
+        <p id="categoryPageDescription">Category description here.</p>
+      </div>
+
+      <div class="individual-stall-grid" id="categoryStallsGrid">
+        <!-- Stall cards with "View Stall" buttons will be inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================
+       PAGE 6: INDIVIDUAL STALL DETAIL
+  ======================================= -->
+
+  <section id="stallDetailPage" class="page blur-page">
+    <header class="navbar">
+      <div class="brand">MANTHAN BAZAAR</div>
+
+      <button class="nav-button" onclick="showPage('categoryStallsPage')">
+        ← Back to Stalls
+      </button>
+    </header>
+
+    <div class="stall-details-wrapper" id="stallDetails">
+      <!-- Stall detail content will be inserted here -->
+    </div>
+  </section>
+
+  <!-- ======================================
+       PAGE 7: ADMIN DASHBOARD
+  ======================================= -->
+
+  <section id="adminPage" class="page blur-page">
+    <header class="navbar">
+      <div class="brand">MANTHAN BAZAAR ADMIN</div>
+
+      <button class="nav-button" onclick="goHome()">
+        Home
+      </button>
+    </header>
+
+    <div class="page-heading">
+      <p class="heading-label">ADMIN REVIEW PANEL</p>
+
+      <h1>Review Dashboard</h1>
+
+      <p>View all member reviews, stall ratings, and feedback.</p>
+    </div>
+
+    <div class="admin-dashboard">
+      <div class="review-summary">
+        <div class="summary-card">
+          <p>Total Reviews</p>
+          <h2 id="totalReviews">0</h2>
+        </div>
+
+        <div class="summary-card">
+          <p>Members Reviewed</p>
+          <h2 id="totalMembers">0</h2>
+        </div>
+
+        <div class="summary-card">
+          <p>Stalls Reviewed</p>
+          <h2 id="totalStallsReviewed">0</h2>
+        </div>
+      </div>
+
+      <div class="admin-review-table-box">
+        <div class="admin-table-heading">
+          <h2>Submitted Reviews</h2>
+
+          <button class="delete-button" onclick="clearAllReviews()">
+            Clear All Reviews
+          </button>
+        </div>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Member Name</th>
+                <th>Role</th>
+                <th>Stall</th>
+                <th>Rating</th>
+                <th>Review</th>
+                <th>Date & Time</th>
+              </tr>
+            </thead>
+
+            <tbody id="adminReviewTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================
+       REVIEW FORM MODAL
+  ======================================= -->
+
+  <div class="modal" id="reviewModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeReviewModal()">
+        &times;
+      </button>
+
+      <p class="heading-label">STALL FEEDBACK</p>
+
+      <h2>Review This Stall</h2>
+
+      <p class="modal-description">
+        Your review will be visible only to the admin.
+      </p>
+
+      <form id="reviewForm">
+        <label for="reviewerName">Reviewing Member</label>
+
+        <input type="text" id="reviewerName" readonly />
+
+        <label for="reviewStall">Choose Stall</label>
+
+        <select id="reviewStall" required></select>
+
+        <label>Your Rating</label>
+
+        <div class="stars" id="starButtons">
+          <button type="button" data-rating="1">★</button>
+          <button type="button" data-rating="2">★</button>
+          <button type="button" data-rating="3">★</button>
+          <button type="button" data-rating="4">★</button>
+          <button type="button" data-rating="5">★</button>
+        </div>
+
+        <label for="reviewText">Review About the Stall</label>
+
+        <textarea
+          id="reviewText"
+          rows="4"
+          maxlength="300"
+          placeholder="Write about food taste, service, price, quality, or presentation..."
+          required
+        ></textarea>
+
+        <button type="submit" class="blue-button form-button">
+          Submit Your Review
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================
+       AFTER REVIEW QUESTION POPUP
+  ======================================= -->
+
+<!-- ======================================
+     REVIEW SUCCESS POPUP
+======================================= -->
+
+<div id="reviewSuccessModal" class="modal">
+  <div class="modal-content another-review-box">
+
+    <h2>Review Submitted Successfully!</h2>
+
+    <p>
+      Thank you for sharing your feedback.
+      Would you like to submit a review for another stall?
+    </p>
+
+    <div class="review-choice-buttons">
+
+      <!-- Opens the review form again -->
+      <button
+        type="button"
+        class="blue-button"
+        onclick="submitAnotherReview()"
+      >
+        Yes, Submit Another Review
+      </button>
+
+      <!-- Goes directly to home page -->
+      <button
+        type="button"
+        class="home-return-button"
+        onclick="goToHomeAfterReview()"
+      >
+        No, Go to Home Page
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Toast Message -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
